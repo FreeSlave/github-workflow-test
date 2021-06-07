@@ -7,12 +7,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, macos-10.15]
+        os: [macos-10.15]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
 
     - name: Build
       run: |
-        clang++ main.cpp && ./a.out
+        cmake -B build -S . && cmake --build build --target all && ./build/main
 
