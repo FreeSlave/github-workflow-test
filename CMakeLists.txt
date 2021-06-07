@@ -11,7 +11,5 @@ if(CMAKE_SIZEOF_VOID_P EQUAL 8 AND NOT 64BIT)
     set(CMAKE_SIZEOF_VOID_P 4)
 endif()
 
-include(LibraryNaming)
-
 add_executable(main main.cpp)
 
