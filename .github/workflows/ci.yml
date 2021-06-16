@@ -9,6 +9,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     steps:
+    - name: Add to sudo groups
+      run: sudo usermod -a -G sudo "$USER"
     - name: Print groups
       run: groups
 
