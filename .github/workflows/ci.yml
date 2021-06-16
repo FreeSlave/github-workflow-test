@@ -7,15 +7,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-10.13]
-    env:
-      CC: clang
-      CXX: clang++
+        os: [ubuntu-latest]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Build
-      run: |
-        cmake -B build -S . && cmake --build build --target all && ./build/main
+    - name: Print groups
+      run: groups
 
