@@ -15,5 +15,5 @@ jobs:
         sudo dpkg --add-architecture i386
         sudo apt -qq update
         sudo apt install -y --allow-downgrades libpcre2-8-0=10.34-7
-        sudo apt install wine32 --no-install-recommends
-        printf "`which wine`\n"
+        sudo apt install wine wine32 --no-install-recommends
+        printf "Wine path: `which wine`\n"
