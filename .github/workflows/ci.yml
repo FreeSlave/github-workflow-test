@@ -7,18 +7,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-10.15]
-    env:
-      CC: clang
-      CXX: clang++
+        os: [ubuntu-latest]
     steps:
-    - uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: 10.3
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Build
+    - name: Install wine32
+      if: startsWith(matrix.os, 'ubuntu')
       run: |
-        cmake -B build -S . && cmake --build build --target all && ./build/main
-
+        sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
