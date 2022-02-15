@@ -12,4 +12,7 @@ jobs:
     - name: Install wine32
       if: startsWith(matrix.os, 'ubuntu')
       run: |
-        sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt install wine32 --fix-broken --install-recommends --install-suggests
+        sudo dpkg --add-architecture i386
+        sudo apt -qq update
+        sudo apt install -y --allow-downgrades libpcre2-8-0=10.34-7
+        sudo apt install wine32 --fix-broken --install-recommends --install-suggests
